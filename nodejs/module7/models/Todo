@@ -1,0 +1,26 @@
+const mongoose = require("mongoose");
+
+const TodoSchema = new mongoose.Schema({
+  description: String,
+  done: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const Todo = mongoose.model("Todo", TodoSchema);
+
+async function run() {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/todoapp");
+    console.log("Connected to MongoDB");
+
+    const todo = await Todo.findOne();
+    console.log(todo);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+run();
+module.exports = Todo;
