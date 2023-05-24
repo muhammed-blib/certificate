@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <h1>Todo</h1>
+
+    <div id="todo"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- prop types -->
+    <script
+      type="module"
+      src="https://unpkg.com/prop-types@15.7.2/prop-types.min.js"
+    ></script>
+    <script type="text/babel">
+      function Todo({ tasks }) {
+        let [inputData, setInputData] = React.useState("task");
+        return (
+          <div>
+            <input type="text" onChange={(e) => setInputData(e.target.value)} />
+            <p>
+              {tasks}:{inputData}
+            </p>
+          </div>
+        );
+      }
+
+      Todo.propTypes = {
+        tasks: PropTypes.string.isRequired,
+      };
+
+      ReactDOM.render(
+        <Todo tasks="writing" />,
+        document.getElementById("todo")
+      );
+    </script>
+  </body>
+</html>

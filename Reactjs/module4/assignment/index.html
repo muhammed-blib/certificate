@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React forms</title>
+  </head>
+  <body>
+    <div id="forms"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- prop types -->
+    <script
+      type="module"
+      src="https://unpkg.com/prop-types@15.7.2/prop-types.min.js"
+    ></script>
+    <script type="text/babel">
+      function App() {
+        const [credential, setCredential] = React.useState({
+          name: "",
+          email: "",
+          password: "",
+          mobile: "",
+          address: "",
+        });
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          if (
+            nameRef.current.value !== "" &&
+            emailRef.current.value !== "" &&
+            passwordRef.current.value !== "" &&
+            mobileRef.current.value !== ""
+          ) {
+            setCredential({
+              name: nameRef.current.value,
+              email: emailRef.current.value,
+              password: passwordRef.current.value,
+              mobile: mobileRef.current.value,
+            });
+            console.log(
+              credential.name,
+              credential.email,
+              credential.password,
+              credential.mobile
+            );
+            console.log("done");
+          } else {
+            e.preventDefault();
+            alert("please fill data in alll fields");
+          }
+        };
+
+        const nameRef = React.useRef();
+        const emailRef = React.useRef();
+        const passwordRef = React.useRef();
+        const mobileRef = React.useRef();
+
+        return (
+          <div>
+            <form onSubmit={(e) => handleSubmit(e)} action="">
+              <label style={style.label} for="useranme">
+                useranme
+              </label>
+              <input
+                id="useranme"
+                style={style.input}
+                type="text"
+                ref={nameRef}
+              />
+
+              <br />
+              <label style={style.label} for="email">
+                email
+              </label>
+              <input
+                ref={emailRef}
+                id="email"
+                style={style.input}
+                type="text"
+              />
+              <br />
+              <label style={style.label} for="password">
+                password
+              </label>
+              <input
+                ref={passwordRef}
+                id="password"
+                style={style.input}
+                type="text"
+              />
+              <br />
+              <label style={style.label} for="mobilenumber">
+                mobilenumber
+              </label>
+              <input
+                ref={mobileRef}
+                id="mobilenumber"
+                style={style.input}
+                type="text"
+              />
+              <br />
+              <button style={{ padding: "8px", margin: "2px" }} type="submit">
+                click to log the data into console
+              </button>
+            </form>
+          </div>
+        );
+      }
+      {
+        App;
+      }
+      const style = {
+        input: {
+          padding: "10px",
+          display: "inline-block",
+          float: "left",
+        },
+        label: {
+          margin: "10px",
+          display: "inline - block",
+          float: "left",
+          clear: "left",
+          width: "250px",
+          textAlign: "right",
+        },
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("forms"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
