@@ -1,0 +1,27 @@
+Install puppet master on the master server:
+$ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb 
+$ sudo dpkg -i puppetlabs-release-pc1-xenial.deb 
+$ sudo apt-get update 
+$ sudo apt-get install puppetserver
+Install puppet agent on the slave servers:
+$ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb 
+$ sudo dpkg -i puppetlabs-release-pc1-xenial.deb 
+$ sudo apt-get update 
+$ sudo apt-get install puppet-agent
+Configure the Puppet Agent:
+first install puppet master in the master
+$ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb 
+$ sudo dpkg -i puppetlabs-release-pc1-xenial.deb 
+$ sudo apt-get update 
+$ sudo apt-get install puppetserver
+second install on slave:
+$ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb 
+$ sudo dpkg -i puppetlabs-release-pc1-xenial.deb 
+$ sudo apt-get update 
+$ sudo apt-get install puppet-agent
+
+$ sudo nano /etc/puppetlabs/puppet/puppet.conf
+
+sudo systemctl start puppet
+class { 'apache': }
+

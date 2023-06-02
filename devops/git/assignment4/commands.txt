@@ -1,0 +1,31 @@
+mkdir git_working_directory
+cd git_working_directory
+git init
+touch master.txt
+git add .
+git commit -m "Add master.txt"
+git branch public1
+git branch public2
+git branch private
+git checkout public1
+touch public1.txt
+git add .
+git commit -m "Add public1.txt"
+git checkout master
+git merge public1
+git checkout public2
+touch public2.txt
+git add .
+git commit -m "Add public2.txt"
+git checkout master
+git merge public2
+git checkout private
+nano master.txt # Edit the file as needed and save it.
+git add .
+git commit -m "Edit master.txt"
+git checkout public1
+git merge private
+git checkout public2
+git merge private
+git checkout master
+git merge private

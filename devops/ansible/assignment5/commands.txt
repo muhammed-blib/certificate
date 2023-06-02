@@ -1,0 +1,26 @@
+- name: Create a new deployment of ansible cluster of 5 nodes
+  hosts: all
+  become: true
+
+- name: Label 2 nodes as test and other 2 as prod
+  hosts: all
+  become: true
+  vars:
+    test_nodes:
+      - node1
+      - node2
+    prod_nodes:
+      - node3
+      - node4
+
+- name: Install java on test nodes
+  hosts: "{{ test_nodes }}"
+  become: true
+  roles:
+    - java
+
+- name: Install mysql-server on prod nodes
+  hosts: "{{ prod_nodes }}"
+  become: true
+  roles:
+    - mysql-server

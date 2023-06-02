@@ -1,0 +1,5 @@
+- name: Copy index.html file to remote server
+  copy:
+    src: /path/to/local/index.html
+    dest: /path/to/remote/index.html
+  when: inventory_hostname in groups['slave'] and 'nginx' in group_names

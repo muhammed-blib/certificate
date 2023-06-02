@@ -1,0 +1,15 @@
+- name: Add text to /tmp/1.txt
+  hosts: all
+  become: yes
+  tasks:
+    - name: Add text to file
+      lineinfile:
+        path: /tmp/1.txt
+        line: 'This text has been added by custom script'
+
+- name: Run script on all hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Run script
+      shell: /path/to/script.sh

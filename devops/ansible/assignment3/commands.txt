@@ -1,0 +1,11 @@
+- name: Install apache2 on slave1
+  hosts: slave1
+  become: true
+  roles:
+    - apache2
+
+- name: Install nginx on slave2
+  hosts: slave2
+  become: true
+  roles:
+    - nginx

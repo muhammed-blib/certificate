@@ -1,0 +1,6 @@
+docker build -t my_image .
+docker tag ubuntu  mydocker
+docker push ubuntu mydocker
+docker pull ubuntu
+docker run -p 80:80 docker push
+service apache2 start

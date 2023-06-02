@@ -1,0 +1,16 @@
+- name: Install Java on slave1
+  hosts: slave1
+  become: yes
+  tasks:
+    - name: Install Java
+      apt:
+        name: openjdk-8-jdk
+
+- name: Install MySQL on slave2
+  hosts: slave2
+  become: yes
+  tasks:
+    - name: Install MySQL Server
+      apt:
+        name: mysql-server
+        state: present

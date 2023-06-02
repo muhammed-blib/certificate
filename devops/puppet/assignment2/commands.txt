@@ -1,0 +1,10 @@
+Install nginx on the slave servers:
+$ sudo apt-get install nginx
+Add the following code to the manifest file:
+if $::operatingsystem == 'Ubuntu' {
+  if package_installed('apache2') {
+    package { 'nginx':
+      ensure => installed,
+    }
+  }
+}

@@ -1,0 +1,6 @@
+If apache is installed:
+$ sudo sed -i 's/index.html/index_apache.html/g' /var/www/html/index.html
+$ echo "apache is installed" > /var/www/html/index_apache.html
+If nginx is installed:
+$ sudo sed -i 's/index.html/index_nginx.html/g' /var/www/html/index.html
+$ echo "nginx is installed" > /var/www/html/index_nginx.html

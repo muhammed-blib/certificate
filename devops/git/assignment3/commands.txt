@@ -1,0 +1,25 @@
+mkdir git_working_directory
+cd git_working_directory
+git init
+touch main.txt
+git add .
+git commit -m "Add main.txt"
+git branch develop
+git branch F1
+git branch f2
+git checkout develop
+touch develop.txt
+git add .
+git commit -m "Add develop.txt"
+git checkout F1
+touch f1.txt
+git add .
+git commit -m "Add f1.txt"
+git checkout f2
+touch f2.txt
+git add .
+git commit -m "Add f2.txt"
+git push --all origin
+git checkout master
+git branch -d f2
+git push origin --delete f2

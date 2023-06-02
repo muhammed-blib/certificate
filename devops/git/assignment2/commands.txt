@@ -1,0 +1,21 @@
+mkdir git_working_directory
+cd git_working_directory
+git init
+touch feature1.txt
+touch feature2.txt
+git add .
+git commit -m "Initial commit"
+git branch develop
+git branch feature1
+git branch feature2
+git checkout develop
+touch develop.txt
+git stash save "Stash develop.txt"
+git checkout feature1
+touch new.txt
+git add .
+git commit -m "Add new.txt"
+git checkout develop
+git stash apply stash@{0}
+git add .
+git commit -m "Add develop.txt"

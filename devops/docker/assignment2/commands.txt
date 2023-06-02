@@ -1,0 +1,5 @@
+docker build -t ubuntu .
+docker run -p 81:80 ubuntu
+docker ps
+docker exec -it <ubuntu_image_id> bash
+service apache2 start

@@ -1,0 +1,5 @@
+docker pull ubuntu
+docker run -p 80:80 ubuntu
+apt-get update
+apt-get install apache2 -y
+service apache2 start

@@ -1,0 +1,13 @@
+mkdir git_working_directory
+cd git_working_directory
+git init
+
+touch urgent.txt
+git add .
+git commit -m "Add urgent.txt"
+git branch feature1
+git checkout feature1
+touch feature.txt
+git add .
+git commit -m "Add feature.txt"
+
